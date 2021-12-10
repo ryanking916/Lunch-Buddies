@@ -32,21 +32,20 @@ def Main():
 
 
 def Startmenu():
-    print("************Welcome to FakeFlix Demo**************")
-    print()
+    
 
-    decision = input("""
+    selection = input("""
                       A: Please Register
                       B: Login
                       Q: Logout
 
                       Please enter your choice: """)
 
-    if decision == "A" or decision =="a":
+    if selection == "A" or selection =="a":
         register()
-    elif decision == "B" or decision =="b":
+    elif selection == "B" or selection =="b":
         login()
-    elif decision =="Q" or decision =="q":
+    elif selection =="Q" or selection =="q":
         logout()
     else:
         print("You must only select either A or B")
@@ -57,14 +56,24 @@ def logout():
     Main()
 ##Passwords, sign up/ login
 def register():
-    input("What would you like your username to be: ")
-    input("type a password: ")
+    global user
+    global password
+    
+    user = input("What would you like your username to be: ")
+    password = input("type a password: ")
     pass
     
 def login():
     print("you are logging in")
-    input("type your username: ")
-    input("type your password: ")
+    userInput = input("type your username: ")
+    if userInput == user:
+    userInput = input("type your password: ")   
+    if userInput == password:
+       print("Welcome!")
+    else:
+       print("Wrong password.")
+else:
+    print("Wrong username.")
     pass
     
 #the program is initiated, so to speak, here
